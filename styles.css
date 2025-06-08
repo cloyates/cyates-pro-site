@@ -145,9 +145,16 @@ p {
     border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
-.hero-icon i {
+/* .hero-icon i {
     font-size: 5rem;
     color: rgba(255, 255, 255, 0.8);
+} */
+
+.hero-logo {
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
 }
 
 /* Buttons */
