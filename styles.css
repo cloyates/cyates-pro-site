@@ -146,7 +146,7 @@ p {
 }
 
 .hero-logo {
-    width: 280px;
+    width: 320px;
     height: auto;
     object-fit: contain;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
@@ -739,7 +739,7 @@ section {
     }
     
     .hero-logo {
-        width: 220px;
+        width: 260px;
         height: auto;
     }
 }
@@ -767,7 +767,7 @@ section {
     }
     
     .hero-logo {
-        width: 180px;
+        width: 220px;
         height: auto;
     }
     
