@@ -496,7 +496,7 @@ section {
 .contact-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    background: linear-gradient(135deg, #00FF66, #00E659);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -506,7 +506,7 @@ section {
 
 .contact-icon i {
     font-size: 1.5rem;
-    color: white;
+    color: #1e1e1e;
 }
 
 .contact-details h3 {
@@ -521,11 +521,11 @@ section {
 
 /* Form Styles */
 .form {
-    background: #334155;
+    background: #2a2a2a;
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    border: 1px solid #475569;
+    border: 1px solid #404040;
 }
 
 .form-group {
@@ -543,20 +543,20 @@ section {
 .form-textarea {
     width: 100%;
     padding: 0.875rem;
-    border: 2px solid #475569;
+    border: 2px solid #404040;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
     font-family: inherit;
-    background: #1e293b;
+    background: #1e1e1e;
     color: #ffffff;
 }
 
 .form-input:focus,
 .form-textarea:focus {
     outline: none;
-    border-color: #f97316;
-    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+    border-color: #00FF66;
+    box-shadow: 0 0 0 3px rgba(0, 255, 102, 0.1);
 }
 
 .form-textarea {
@@ -603,7 +603,7 @@ section {
 }
 
 .footer-brand h3 {
-    color: #2563eb;
+    color: #00FF66;
     margin-bottom: 1rem;
 }
 
@@ -637,7 +637,7 @@ section {
 }
 
 .footer-section a:hover {
-    color: #f97316;
+    color: #00FF66;
 }
 
 .footer-bottom {
