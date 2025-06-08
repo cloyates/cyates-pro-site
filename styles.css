@@ -276,7 +276,7 @@ section {
 
 .project-icon i {
     font-size: 2rem;
-    color: white;
+    color: #1e1e1e;
 }
 
 .project-title {
@@ -293,7 +293,7 @@ section {
 
 /* About Section */
 .about {
-    background: #1e293b;
+    background: #1e1e1e;
 }
 
 .about-content {
@@ -329,7 +329,7 @@ section {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #f97316;
+    color: #00FF66;
     line-height: 1;
     margin-bottom: 0.5rem;
 }
@@ -348,7 +348,7 @@ section {
 .about-placeholder {
     width: 300px;
     height: 300px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    background: linear-gradient(135deg, #00FF66, #00E659);
     border-radius: 20px;
     display: flex;
     align-items: center;
@@ -357,12 +357,12 @@ section {
 
 .about-placeholder i {
     font-size: 8rem;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(30, 30, 30, 0.8);
 }
 
 /* Labs Section */
 .labs {
-    background: #1a202c;
+    background: #1e1e1e;
     color: white;
 }
 
@@ -444,7 +444,7 @@ section {
 .lab-icon {
     width: 60px;
     height: 60px;
-    background: linear-gradient(135deg, #84cc16, #65a30d);
+    background: linear-gradient(135deg, #00FF66, #00E659);
     border-radius: 15px;
     display: flex;
     align-items: center;
@@ -454,7 +454,7 @@ section {
 
 .lab-icon i {
     font-size: 1.5rem;
-    color: white;
+    color: #1e1e1e;
 }
 
 .lab-item h3 {
@@ -472,7 +472,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: #1e293b;
+    background: #1e1e1e;
 }
 
 .contact-content {
