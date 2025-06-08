@@ -201,7 +201,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form class="form">
+                    <form class="form" id="contactForm">
                         <div class="form-group">
                             <label for="name" class="form-label">Name</label>
                             <input type="text" id="name" name="name" class="form-input" required>
@@ -218,7 +218,8 @@
                             <label for="message" class="form-label">Project Details</label>
                             <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full">Send Message</button>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message</button>
+                        <div id="formMessage" class="form-message" style="display: none;"></div>
                     </form>
                 </div>
             </div>
@@ -259,5 +260,51 @@
             </div>
         </div>
     </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+            
+            const submitBtn = document.getElementById('submitBtn');
+            const formMessage = document.getElementById('formMessage');
+            const formData = new FormData(this);
+            
+            // Show loading state
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
+            formMessage.style.display = 'none';
+            
+            try {
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams(formData).toString()
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    formMessage.textContent = result.message;
+                    formMessage.className = 'form-message success';
+                    formMessage.style.display = 'block';
+                    this.reset();
+                } else {
+                    formMessage.textContent = result.message;
+                    formMessage.className = 'form-message error';
+                    formMessage.style.display = 'block';
+                }
+            } catch (error) {
+                formMessage.textContent = 'There was an error sending your message. Please try again.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+            }
+            
+            // Reset button state
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Send Message';
+        });
+    </script>
 </body>
 </html>

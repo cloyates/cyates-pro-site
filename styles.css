@@ -522,6 +522,30 @@ section {
     min-height: 120px;
 }
 
+.form-message {
+    margin-top: 1rem;
+    padding: 0.875rem;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+.form-message.success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #84cc16;
+}
+
+.form-message.error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #f87171;
+}
+
+.btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
 /* Footer */
 .footer {
     background: #1a202c;
