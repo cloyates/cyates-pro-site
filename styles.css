@@ -368,6 +368,32 @@ section {
     color: white;
 }
 
+.labs-logo {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.labs-logo-img {
+    height: 80px;
+    width: auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.labs-logo-img:hover {
+    transform: scale(1.05);
+}
+
+.labs-tagline {
+    font-size: 1.125rem;
+    color: #e2e8f0;
+    text-align: center;
+    margin: 1.5rem auto 2rem;
+    max-width: 600px;
+    font-style: italic;
+    line-height: 1.6;
+}
+
 .labs-intro {
     max-width: 800px;
     margin: 0 auto 3rem;
@@ -686,6 +712,10 @@ section {
     .labs-grid {
         grid-template-columns: 1fr;
     }
+    
+    .labs-logo-img {
+        height: 60px;
+    }
 }
 
 @media (max-width: 480px) {
@@ -725,6 +755,16 @@ section {
     
     .stat-number {
         font-size: 2rem;
+    }
+    
+    .labs-logo-img {
+        height: 50px;
+    }
+    
+    .labs-tagline {
+        font-size: 1rem;
+        margin: 1rem auto 1.5rem;
+        padding: 0 1rem;
     }
 }
 
