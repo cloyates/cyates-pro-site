@@ -48,6 +48,20 @@ export const labPosts = pgTable('lab_posts', {
   updatedAt: timestamp('updated_at').defaultNow().notNull(),
 });
 
+// Blog posts table for main blog content
+export const blogPosts = pgTable('blog_posts', {
+  id: serial('id').primaryKey(),
+  title: varchar('title', { length: 255 }).notNull(),
+  slug: varchar('slug', { length: 255 }).notNull().unique(),
+  content: text('content').notNull(),
+  excerpt: text('excerpt').notNull(),
+  publishedDate: varchar('published_date', { length: 50 }).notNull(),
+  tags: text('tags'), // JSON array stored as text
+  published: boolean('published').default(true).notNull(),
+  createdAt: timestamp('created_at').defaultNow().notNull(),
+  updatedAt: timestamp('updated_at').defaultNow().notNull(),
+});
+
 // Define relations
 export const usersRelations = relations(users, ({ many }) => ({
   contactSubmissions: many(contactSubmissions),
@@ -69,3 +83,5 @@ export type Project = typeof projects.$inferSelect;
 export type InsertProject = typeof projects.$inferInsert;
 export type LabPost = typeof labPosts.$inferSelect;
 export type InsertLabPost = typeof labPosts.$inferInsert;
+export type BlogPost = typeof blogPosts.$inferSelect;
+export type InsertBlogPost = typeof blogPosts.$inferInsert;

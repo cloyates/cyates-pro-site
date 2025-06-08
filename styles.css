@@ -957,6 +957,24 @@ section {
 
 .read-more-btn:hover {
     color: #00CC52;
+}
+
+/* Responsive styles for tools and blog sections */
+@media (max-width: 768px) {
+    .tools-grid,
+    .blog-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .subsection-title {
+        font-size: 1.5rem;
+    }
+    
+    .tool-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
     
     .labs-tagline {
         font-size: 1rem;

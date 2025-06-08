@@ -109,7 +109,8 @@ const server = http.createServer(async (req, res) => {
     '.ttf': 'application/font-ttf',
     '.eot': 'application/vnd.ms-fontobject',
     '.otf': 'application/font-otf',
-    '.wasm': 'application/wasm'
+    '.wasm': 'application/wasm',
+    '.md': 'text/markdown'
   };
 
   const contentType = mimeTypes[extname] || 'application/octet-stream';
