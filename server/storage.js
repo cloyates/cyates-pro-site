@@ -1,5 +1,5 @@
-import { users, contactSubmissions, projects, labPosts, type User, type InsertUser, type ContactSubmission, type InsertContactSubmission, type Project, type InsertProject, type LabPost, type InsertLabPost } from "../shared/schema";
-import { db } from "./db";
+import { users, contactSubmissions, projects, labPosts } from "../shared/schema.js";
+import { db } from "./db.js";
 import { eq, desc } from "drizzle-orm";
 
 export interface IStorage {
