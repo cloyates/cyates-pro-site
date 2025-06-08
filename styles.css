@@ -374,8 +374,11 @@ section {
 }
 
 .labs-logo-img {
-    height: 56px;
-    width: auto;
+    width: 100px;
+    height: auto;
+    background: white;
+    border-radius: 50%;
+    padding: 8px;
     filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
     transition: transform 0.3s ease;
 }
@@ -714,7 +717,7 @@ section {
     }
     
     .labs-logo-img {
-        height: 48px;
+        width: 80px;
     }
 }
 
@@ -758,7 +761,7 @@ section {
     }
     
     .labs-logo-img {
-        height: 40px;
+        width: 70px;
     }
     
     .labs-tagline {
