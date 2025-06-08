@@ -81,6 +81,21 @@ const server = http.createServer(async (req, res) => {
       return;
     }
     
+    if (pathname === '/api/blog-posts' && req.method === 'GET') {
+      try {
+        const { storage } = await import('./storage.js');
+        const posts = await storage.getPublishedBlogPosts();
+        
+        res.writeHead(200);
+        res.end(JSON.stringify(posts));
+      } catch (error) {
+        console.error('Error fetching blog posts:', error);
+        res.writeHead(500);
+        res.end(JSON.stringify({ error: 'Failed to fetch blog posts' }));
+      }
+      return;
+    }
+    
     // 404 for unknown API endpoints
     res.writeHead(404);
     res.end(JSON.stringify({ error: 'Not found' }));

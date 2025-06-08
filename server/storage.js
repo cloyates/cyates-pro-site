@@ -1,49 +1,24 @@
-import { users, contactSubmissions, projects, labPosts } from "../shared/schema.js";
+import { users, contactSubmissions, projects, labPosts, blogPosts } from "../shared/schema.js";
 import { db } from "./db.js";
 import { eq, desc } from "drizzle-orm";
 
-export interface IStorage {
-  // User operations
-  getUser(id: number): Promise<User | undefined>;
-  getUserByUsername(username: string): Promise<User | undefined>;
-  getUserByEmail(email: string): Promise<User | undefined>;
-  createUser(insertUser: InsertUser): Promise<User>;
-  
-  // Contact form operations
-  createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission>;
-  getContactSubmissions(): Promise<ContactSubmission[]>;
-  getContactSubmission(id: number): Promise<ContactSubmission | undefined>;
-  
-  // Project operations
-  getProjects(): Promise<Project[]>;
-  getFeaturedProjects(): Promise<Project[]>;
-  getProject(id: number): Promise<Project | undefined>;
-  createProject(project: InsertProject): Promise<Project>;
-  
-  // Lab posts operations
-  getLabPosts(): Promise<LabPost[]>;
-  getPublishedLabPosts(): Promise<LabPost[]>;
-  getLabPost(id: number): Promise<LabPost | undefined>;
-  createLabPost(post: InsertLabPost): Promise<LabPost>;
-}
-
-export class DatabaseStorage implements IStorage {
-  async getUser(id: number): Promise<User | undefined> {
+export class DatabaseStorage {
+  async getUser(id) {
     const [user] = await db.select().from(users).where(eq(users.id, id));
     return user || undefined;
   }
 
-  async getUserByUsername(username: string): Promise<User | undefined> {
+  async getUserByUsername(username) {
     const [user] = await db.select().from(users).where(eq(users.username, username));
     return user || undefined;
   }
 
-  async getUserByEmail(email: string): Promise<User | undefined> {
+  async getUserByEmail(email) {
     const [user] = await db.select().from(users).where(eq(users.email, email));
     return user || undefined;
   }
 
-  async createUser(insertUser: InsertUser): Promise<User> {
+  async createUser(insertUser) {
     const [user] = await db
       .insert(users)
       .values(insertUser)
@@ -51,7 +26,7 @@ export class DatabaseStorage implements IStorage {
     return user;
   }
 
-  async createContactSubmission(submission: InsertContactSubmission): Promise<ContactSubmission> {
+  async createContactSubmission(submission) {
     const [contactSubmission] = await db
       .insert(contactSubmissions)
       .values(submission)
@@ -59,14 +34,14 @@ export class DatabaseStorage implements IStorage {
     return contactSubmission;
   }
 
-  async getContactSubmissions(): Promise<ContactSubmission[]> {
+  async getContactSubmissions() {
     return await db
       .select()
       .from(contactSubmissions)
       .orderBy(desc(contactSubmissions.createdAt));
   }
 
-  async getContactSubmission(id: number): Promise<ContactSubmission | undefined> {
+  async getContactSubmission(id) {
     const [submission] = await db
       .select()
       .from(contactSubmissions)
@@ -74,14 +49,14 @@ export class DatabaseStorage implements IStorage {
     return submission || undefined;
   }
 
-  async getProjects(): Promise<Project[]> {
+  async getProjects() {
     return await db
       .select()
       .from(projects)
       .orderBy(projects.displayOrder, desc(projects.createdAt));
   }
 
-  async getFeaturedProjects(): Promise<Project[]> {
+  async getFeaturedProjects() {
     return await db
       .select()
       .from(projects)
@@ -89,7 +64,7 @@ export class DatabaseStorage implements IStorage {
       .orderBy(projects.displayOrder, desc(projects.createdAt));
   }
 
-  async getProject(id: number): Promise<Project | undefined> {
+  async getProject(id) {
     const [project] = await db
       .select()
       .from(projects)
@@ -97,7 +72,7 @@ export class DatabaseStorage implements IStorage {
     return project || undefined;
   }
 
-  async createProject(project: InsertProject): Promise<Project> {
+  async createProject(project) {
     const [newProject] = await db
       .insert(projects)
       .values(project)
@@ -105,14 +80,14 @@ export class DatabaseStorage implements IStorage {
     return newProject;
   }
 
-  async getLabPosts(): Promise<LabPost[]> {
+  async getLabPosts() {
     return await db
       .select()
       .from(labPosts)
       .orderBy(desc(labPosts.createdAt));
   }
 
-  async getPublishedLabPosts(): Promise<LabPost[]> {
+  async getPublishedLabPosts() {
     return await db
       .select()
       .from(labPosts)
@@ -120,7 +95,7 @@ export class DatabaseStorage implements IStorage {
       .orderBy(desc(labPosts.publishedAt));
   }
 
-  async getLabPost(id: number): Promise<LabPost | undefined> {
+  async getLabPost(id) {
     const [post] = await db
       .select()
       .from(labPosts)
@@ -128,9 +103,48 @@ export class DatabaseStorage implements IStorage {
     return post || undefined;
   }
 
-  async createLabPost(post: InsertLabPost): Promise<LabPost> {
+  async createLabPost(post) {
     const [newPost] = await db
       .insert(labPosts)
+      .values(post)
+      .returning();
+    return newPost;
+  }
+
+  async getBlogPosts() {
+    return await db
+      .select()
+      .from(blogPosts)
+      .orderBy(desc(blogPosts.createdAt));
+  }
+
+  async getPublishedBlogPosts() {
+    return await db
+      .select()
+      .from(blogPosts)
+      .where(eq(blogPosts.published, true))
+      .orderBy(desc(blogPosts.createdAt));
+  }
+
+  async getBlogPost(id) {
+    const [post] = await db
+      .select()
+      .from(blogPosts)
+      .where(eq(blogPosts.id, id));
+    return post || undefined;
+  }
+
+  async getBlogPostBySlug(slug) {
+    const [post] = await db
+      .select()
+      .from(blogPosts)
+      .where(eq(blogPosts.slug, slug));
+    return post || undefined;
+  }
+
+  async createBlogPost(post) {
+    const [newPost] = await db
+      .insert(blogPosts)
       .values(post)
       .returning();
     return newPost;
