@@ -57,10 +57,20 @@ p {
     margin: 0 auto;
 }
 
-.nav-brand h2 {
-    color: #00FF66;
-    font-size: 1.5rem;
-    font-weight: 700;
+.nav-home {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.nav-home:hover {
+    transform: scale(1.1);
+}
+
+.nav-home svg {
+    width: 24px;
+    height: 24px;
 }
 
 .nav-links {
