@@ -328,14 +328,14 @@ section {
     display: block;
     font-size: 2.5rem;
     font-weight: 700;
-    color: #2563eb;
+    color: #f97316;
     line-height: 1;
     margin-bottom: 0.5rem;
 }
 
 .stat-label {
     font-size: 0.875rem;
-    color: #6b7280;
+    color: #e2e8f0;
     font-weight: 500;
 }
 
@@ -471,7 +471,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: white;
+    background: #1e293b;
 }
 
 .contact-content {
@@ -510,20 +510,21 @@ section {
 
 .contact-details h3 {
     margin-bottom: 0.5rem;
-    color: #111827;
+    color: #ffffff;
 }
 
 .contact-details p {
-    color: #374151;
+    color: #e2e8f0;
     margin: 0;
 }
 
 /* Form Styles */
 .form {
-    background: white;
+    background: #334155;
     padding: 2.5rem;
     border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 1px solid #475569;
 }
 
 .form-group {
@@ -534,25 +535,27 @@ section {
     display: block;
     margin-bottom: 0.5rem;
     font-weight: 600;
-    color: #111827;
+    color: #ffffff;
 }
 
 .form-input,
 .form-textarea {
     width: 100%;
     padding: 0.875rem;
-    border: 2px solid #e2e8f0;
+    border: 2px solid #475569;
     border-radius: 8px;
     font-size: 1rem;
     transition: border-color 0.3s ease;
     font-family: inherit;
+    background: #1e293b;
+    color: #ffffff;
 }
 
 .form-input:focus,
 .form-textarea:focus {
     outline: none;
-    border-color: #2563eb;
-    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
 }
 
 .form-textarea {
@@ -633,7 +636,7 @@ section {
 }
 
 .footer-section a:hover {
-    color: #2563eb;
+    color: #f97316;
 }
 
 .footer-bottom {
