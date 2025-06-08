@@ -1,0 +1,20 @@
+<svg width="300" height="80" viewBox="0 0 300 80" xmlns="http://www.w3.org/2000/svg">
+  <!-- Hexagon with lightning bolt -->
+  <g transform="translate(20, 10)">
+    <!-- Hexagon outline -->
+    <polygon points="30,5 50,15 50,35 30,45 10,35 10,15" 
+             fill="none" 
+             stroke="#00FF66" 
+             stroke-width="2"/>
+    
+    <!-- Lightning bolt -->
+    <path d="M25 12 L32 12 L28 25 L35 25 L25 38 L20 25 L25 25 Z" 
+          fill="#00FF66"/>
+  </g>
+  
+  <!-- CY text -->
+  <text x="80" y="35" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">CY</text>
+  
+  <!-- IT WORKS text -->
+  <text x="80" y="55" font-family="Arial, sans-serif" font-size="16" font-weight="normal" fill="#00FF66">IT WORKS</text>
+</svg>
