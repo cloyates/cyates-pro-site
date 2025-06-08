@@ -433,7 +433,7 @@ section {
 
 /* Contact Section */
 .contact {
-    background: #f7fafc;
+    background: white;
 }
 
 .contact-content {
@@ -571,7 +571,7 @@ section {
 }
 
 .footer-section a:hover {
-    color: #2b6cb0;
+    color: #2563eb;
 }
 
 .footer-bottom {
@@ -735,7 +735,7 @@ section {
 .nav-link:focus,
 .form-input:focus,
 .form-textarea:focus {
-    outline: 2px solid #2b6cb0;
+    outline: 2px solid #2563eb;
     outline-offset: 2px;
 }
 
