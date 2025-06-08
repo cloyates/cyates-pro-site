@@ -13,7 +13,7 @@ body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     line-height: 1.6;
     color: #ffffff;
-    background-color: #1e293b;
+    background-color: #1e1e1e;
 }
 
 /* Container */
@@ -41,9 +41,9 @@ p {
     top: 0;
     left: 0;
     right: 0;
-    background: rgba(30, 41, 59, 0.95);
+    background: rgba(30, 30, 30, 0.95);
     backdrop-filter: blur(10px);
-    border-bottom: 1px solid #475569;
+    border-bottom: 1px solid #333333;
     z-index: 1000;
     transition: all 0.3s ease;
 }
@@ -58,7 +58,7 @@ p {
 }
 
 .nav-brand h2 {
-    color: #2563eb;
+    color: #00FF66;
     font-size: 1.5rem;
     font-weight: 700;
 }
@@ -76,13 +76,13 @@ p {
 }
 
 .nav-link:hover {
-    color: #f97316;
+    color: #00FF66;
 }
 
 /* Hero Section */
 .hero {
     padding: 120px 0 80px;
-    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    background: #1e1e1e;
     color: white;
     overflow: hidden;
     position: relative;
@@ -168,29 +168,29 @@ p {
 }
 
 .btn-primary {
-    background: #2563eb;
-    color: white;
-    border-color: #2563eb;
+    background: #00FF66;
+    color: #1e1e1e;
+    border-color: #00FF66;
 }
 
 .btn-primary:hover {
-    background: #1d4ed8;
-    border-color: #1d4ed8;
+    background: #00E659;
+    border-color: #00E659;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 255, 102, 0.3);
 }
 
 .btn-secondary {
-    background: #f97316;
-    color: white;
-    border-color: #f97316;
+    background: #00FF66;
+    color: #1e1e1e;
+    border-color: #00FF66;
 }
 
 .btn-secondary:hover {
-    background: #ea580c;
-    border-color: #ea580c;
+    background: #00E659;
+    border-color: #00E659;
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+    box-shadow: 0 8px 25px rgba(0, 255, 102, 0.3);
 }
 
 .btn-outline {
@@ -238,7 +238,7 @@ section {
 
 /* Projects Section */
 .projects {
-    background: #1e293b;
+    background: #1e1e1e;
 }
 
 .projects-grid {
@@ -248,25 +248,25 @@ section {
 }
 
 .project-card {
-    background: #334155;
+    background: #2a2a2a;
     padding: 2.5rem;
     border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
     transition: all 0.3s ease;
     text-align: center;
-    border: 1px solid #475569;
+    border: 1px solid #404040;
 }
 
 .project-card:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border-color: #f97316;
+    border-color: #00FF66;
 }
 
 .project-icon {
     width: 80px;
     height: 80px;
-    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    background: linear-gradient(135deg, #00FF66, #00E659);
     border-radius: 20px;
     display: flex;
     align-items: center;
