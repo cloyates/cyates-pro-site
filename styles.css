@@ -387,6 +387,13 @@ section {
     transform: scale(1.05);
 }
 
+.labs-title {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-weight: 700;
+    text-align: center;
+    letter-spacing: 0.025em;
+}
+
 .labs-tagline {
     font-size: 1.125rem;
     color: #e2e8f0;
