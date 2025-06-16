@@ -1,13 +1,43 @@
 <svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="labsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+    <linearGradient id="brainGradRect" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#00FF66"/>
       <stop offset="100%" stop-color="#00E659"/>
     </linearGradient>
   </defs>
+  
   <rect width="400" height="150" fill="#1e1e1e" rx="12"/>
-  <text x="200" y="50" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="url(#labsGrad)">I KNOW NØTHING!</text>
-  <text x="200" y="80" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle" fill="#e2e8f0">LABS</text>
-  <text x="200" y="110" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cbd5e0">Documenting the tools, workflows, and lessons learned</text>
-  <text x="200" y="130" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cbd5e0">so others can skip the trial-and-error</text>
+  
+  <!-- Character positioned left -->
+  <g transform="translate(80,75)">
+    <!-- Character body -->
+    <ellipse cx="0" cy="20" rx="12" ry="20" fill="#2d2d2d"/>
+    
+    <!-- Character head -->
+    <circle cx="0" cy="-10" r="15" fill="#f4a261" stroke="#ffffff" stroke-width="1"/>
+    
+    <!-- Eyes -->
+    <circle cx="-5" cy="-15" r="1.5" fill="#1e1e1e"/>
+    <circle cx="5" cy="-15" r="1.5" fill="#1e1e1e"/>
+    
+    <!-- Mouth -->
+    <path d="M -5 -5 Q 0 -2 5 -5" stroke="#1e1e1e" stroke-width="1" fill="none"/>
+    
+    <!-- Arms -->
+    <path d="M -12 5 Q -17 0 -22 -5" stroke="#f4a261" stroke-width="3" fill="none" stroke-linecap="round"/>
+    <path d="M 12 5 Q 17 0 22 -5" stroke="#f4a261" stroke-width="3" fill="none" stroke-linecap="round"/>
+    
+    <!-- Brain in hand -->
+    <g transform="translate(-27,-10)">
+      <path d="M 0 0 Q -4 -2 -2 -6 Q 0 -9 4 -8 Q 8 -9 10 -6 Q 12 -2 8 0 Q 6 2 4 1 Q 2 2 0 0" fill="url(#brainGradRect)" stroke="#00FF66" stroke-width="0.5"/>
+      <path d="M 2 -4 Q 4 -5 6 -4" stroke="#ffffff" stroke-width="0.3" fill="none"/>
+      <path d="M 1 -2 Q 3 -3 5 -2" stroke="#ffffff" stroke-width="0.3" fill="none"/>
+    </g>
+  </g>
+  
+  <!-- Text content -->
+  <text x="250" y="50" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="url(#brainGradRect)">I KNOW NØTHING!</text>
+  <text x="250" y="75" font-family="Inter, Arial, sans-serif" font-size="16" text-anchor="middle" fill="#e2e8f0">LABS</text>
+  <text x="250" y="100" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#cbd5e0">Documenting tools, workflows, and lessons learned</text>
+  <text x="250" y="115" font-family="Inter, Arial, sans-serif" font-size="11" text-anchor="middle" fill="#cbd5e0">so others can skip the trial-and-error</text>
 </svg>
