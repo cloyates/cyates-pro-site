@@ -1,44 +1,50 @@
 <svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="brainGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00FF66"/>
-      <stop offset="100%" stop-color="#00E659"/>
-    </linearGradient>
-  </defs>
-  
   <!-- Background circle -->
   <circle cx="75" cy="75" r="70" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
   
-  <!-- Character body -->
-  <ellipse cx="75" cy="95" rx="15" ry="25" fill="#1e1e1e"/>
+  <!-- Character body (black t-shirt) -->
+  <ellipse cx="75" cy="105" rx="20" ry="28" fill="#000000"/>
   
-  <!-- Character head (without brain) -->
-  <circle cx="75" cy="55" r="18" fill="#f4a261" stroke="#1e1e1e" stroke-width="1"/>
+  <!-- Character head -->
+  <circle cx="75" cy="65" r="22" fill="#fdbcb4" stroke="#000000" stroke-width="1"/>
   
-  <!-- Eyes -->
-  <circle cx="70" cy="50" r="2" fill="#1e1e1e"/>
-  <circle cx="80" cy="50" r="2" fill="#1e1e1e"/>
+  <!-- Skull cap/hair (opened top of head) -->
+  <path d="M 53 60 Q 53 45 75 45 Q 97 45 97 60 Q 95 55 90 52 Q 85 50 80 48 Q 75 47 70 48 Q 65 50 60 52 Q 55 55 53 60" fill="#000000"/>
   
-  <!-- Mouth (slightly confused expression) -->
-  <path d="M 70 60 Q 75 63 80 60" stroke="#1e1e1e" stroke-width="1.5" fill="none"/>
+  <!-- Hair spikes on skull cap -->
+  <path d="M 60 50 L 55 45 L 58 48" fill="#000000"/>
+  <path d="M 70 47 L 68 42 L 72 45" fill="#000000"/>
+  <path d="M 80 47 L 82 42 L 78 45" fill="#000000"/>
+  <path d="M 90 50 L 95 45 L 92 48" fill="#000000"/>
   
-  <!-- Arms -->
-  <path d="M 60 80 Q 55 75 50 70" stroke="#f4a261" stroke-width="4" fill="none" stroke-linecap="round"/>
-  <path d="M 90 80 Q 95 75 100 70" stroke="#f4a261" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- Eyes (wide, surprised) -->
+  <circle cx="68" cy="60" r="4" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <circle cx="82" cy="60" r="4" fill="#ffffff" stroke="#000000" stroke-width="1"/>
+  <circle cx="68" cy="60" r="2" fill="#000000"/>
+  <circle cx="82" cy="60" r="2" fill="#000000"/>
   
-  <!-- Brain in hand (left hand) -->
-  <g transform="translate(45,65)">
-    <!-- Brain shape -->
-    <path d="M 0 0 Q -5 -3 -3 -8 Q 0 -12 5 -10 Q 10 -12 13 -8 Q 15 -3 10 0 Q 8 3 5 2 Q 2 3 0 0" fill="url(#brainGrad)" stroke="#00E659" stroke-width="0.5"/>
+  <!-- Mouth (open, surprised "O" shape) -->
+  <ellipse cx="75" cy="72" rx="3" ry="5" fill="#000000"/>
+  
+  <!-- Left arm holding brain -->
+  <path d="M 55 85 Q 45 80 38 75" stroke="#fdbcb4" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Right arm -->
+  <path d="M 95 85 Q 105 80 110 85" stroke="#fdbcb4" stroke-width="6" fill="none" stroke-linecap="round"/>
+  
+  <!-- Brain in left hand -->
+  <g transform="translate(32,70)">
+    <path d="M 0 5 Q -3 2 -2 -2 Q 0 -6 4 -5 Q 8 -6 10 -2 Q 11 2 8 5 Q 6 7 4 6 Q 2 7 0 5" fill="#fdbcb4" stroke="#000000" stroke-width="1"/>
     <!-- Brain wrinkles -->
-    <path d="M 2 -5 Q 5 -7 8 -5" stroke="#ffffff" stroke-width="0.5" fill="none"/>
-    <path d="M 1 -2 Q 4 -4 7 -2" stroke="#ffffff" stroke-width="0.5" fill="none"/>
+    <path d="M 2 0 Q 4 -2 6 0" stroke="#000000" stroke-width="0.5" fill="none"/>
+    <path d="M 1 2 Q 3 1 5 2" stroke="#000000" stroke-width="0.5" fill="none"/>
+    <path d="M 3 -3 Q 5 -4 7 -3" stroke="#000000" stroke-width="0.5" fill="none"/>
   </g>
   
-  <!-- Legs -->
-  <path d="M 68 115 L 65 135" stroke="#1e1e1e" stroke-width="3" stroke-linecap="round"/>
-  <path d="M 82 115 L 85 135" stroke="#1e1e1e" stroke-width="3" stroke-linecap="round"/>
+  <!-- "huh?" text on shirt -->
+  <text x="75" y="108" font-family="Arial, sans-serif" font-size="8" font-weight="bold" text-anchor="middle" fill="#ffffff">huh?</text>
   
-  <!-- Text below -->
-  <text x="75" y="145" font-family="Inter, Arial, sans-serif" font-size="8" font-weight="600" text-anchor="middle" fill="#1e1e1e">LABS</text>
+  <!-- Character legs -->
+  <rect x="68" y="130" width="4" height="15" fill="#000000"/>
+  <rect x="78" y="130" width="4" height="15" fill="#000000"/>
 </svg>
