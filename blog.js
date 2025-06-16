@@ -1,6 +1,4 @@
 // Blog functionality for I KNOW NØTHING! LABS
-// PostgreSQL integration placeholder: Future implementation will replace file-based system with database queries
-
 class BlogManager {
     constructor() {
         this.blogPosts = [
