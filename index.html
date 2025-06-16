@@ -66,6 +66,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- EmailJS for contact form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <!-- Blog functionality -->
     <script src="blog.js" defer></script>
 </head>
@@ -300,23 +302,26 @@
                         <h3 id="contact-form-title" class="sr-only">Contact Form</h3>
                         <div class="form-group">
                             <label for="name" class="form-label">Name *</label>
-                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-help">
+                            <input type="text" id="name" name="from_name" class="form-input" required aria-required="true" aria-describedby="name-help name-error" minlength="2" maxlength="50">
                             <div id="name-help" class="sr-only">Enter your full name</div>
+                            <div id="name-error" class="form-error" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-help">
+                            <input type="email" id="email" name="reply_to" class="form-input" required aria-required="true" aria-describedby="email-help email-error">
                             <div id="email-help" class="sr-only">Enter your email address for contact</div>
+                            <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
                             <label for="company" class="form-label">Company</label>
-                            <input type="text" id="company" name="company" class="form-input" aria-describedby="company-help">
+                            <input type="text" id="company" name="company" class="form-input" aria-describedby="company-help" maxlength="100">
                             <div id="company-help" class="sr-only">Optional: Enter your company name</div>
                         </div>
                         <div class="form-group">
                             <label for="message" class="form-label">Project Details *</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required aria-required="true" aria-describedby="message-help"></textarea>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required aria-required="true" aria-describedby="message-help message-error" minlength="10" maxlength="1000"></textarea>
                             <div id="message-help" class="sr-only">Describe your project needs and automation challenges</div>
+                            <div id="message-error" class="form-error" role="alert" aria-live="polite"></div>
                         </div>
                         <button type="submit" class="btn btn-primary btn-full" id="submitBtn" aria-describedby="submit-help">Send Message</button>
                         <div id="submit-help" class="sr-only">Submit your contact form to get in touch about Tech Handyman services</div>
@@ -476,48 +481,196 @@
             updateHeaderOnScroll();
         });
 
-        document.getElementById('contactForm').addEventListener('submit', async function(e) {
+        // Initialize EmailJS
+        emailjs.init("YOUR_PUBLIC_KEY"); // Will be replaced with actual key
+        
+        // Form validation functions
+        function validateName(name) {
+            const trimmed = name.trim();
+            if (trimmed.length < 2) return "Name must be at least 2 characters long";
+            if (trimmed.length > 50) return "Name must be less than 50 characters";
+            if (!/^[a-zA-Z\s'-]+$/.test(trimmed)) return "Name can only contain letters, spaces, hyphens, and apostrophes";
+            return null;
+        }
+        
+        function validateEmail(email) {
+            const trimmed = email.trim();
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(trimmed)) return "Please enter a valid email address";
+            if (trimmed.length > 254) return "Email address is too long";
+            return null;
+        }
+        
+        function validateMessage(message) {
+            const trimmed = message.trim();
+            if (trimmed.length < 10) return "Message must be at least 10 characters long";
+            if (trimmed.length > 1000) return "Message must be less than 1000 characters";
+            return null;
+        }
+        
+        function showFieldError(fieldId, errorMessage) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + '-error');
+            
+            field.classList.remove('success');
+            field.classList.add('error');
+            errorDiv.textContent = errorMessage;
+        }
+        
+        function showFieldSuccess(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + '-error');
+            
+            field.classList.remove('error');
+            field.classList.add('success');
+            errorDiv.textContent = '';
+        }
+        
+        function clearFieldState(fieldId) {
+            const field = document.getElementById(fieldId);
+            const errorDiv = document.getElementById(fieldId + '-error');
+            
+            field.classList.remove('error', 'success');
+            errorDiv.textContent = '';
+        }
+        
+        // Real-time validation
+        document.getElementById('name').addEventListener('blur', function() {
+            const error = validateName(this.value);
+            if (error) {
+                showFieldError('name', error);
+            } else if (this.value.trim()) {
+                showFieldSuccess('name');
+            }
+        });
+        
+        document.getElementById('email').addEventListener('blur', function() {
+            const error = validateEmail(this.value);
+            if (error) {
+                showFieldError('email', error);
+            } else if (this.value.trim()) {
+                showFieldSuccess('email');
+            }
+        });
+        
+        document.getElementById('message').addEventListener('blur', function() {
+            const error = validateMessage(this.value);
+            if (error) {
+                showFieldError('message', error);
+            } else if (this.value.trim()) {
+                showFieldSuccess('message');
+            }
+        });
+        
+        // Form submission with EmailJS
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
             const submitBtn = document.getElementById('submitBtn');
             const formMessage = document.getElementById('formMessage');
-            const formData = new FormData(this);
+            
+            // Get form values
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const company = document.getElementById('company').value;
+            const message = document.getElementById('message').value;
+            
+            // Validate all fields
+            const nameError = validateName(name);
+            const emailError = validateEmail(email);
+            const messageError = validateMessage(message);
+            
+            let hasErrors = false;
+            
+            if (nameError) {
+                showFieldError('name', nameError);
+                hasErrors = true;
+            } else {
+                showFieldSuccess('name');
+            }
+            
+            if (emailError) {
+                showFieldError('email', emailError);
+                hasErrors = true;
+            } else {
+                showFieldSuccess('email');
+            }
+            
+            if (messageError) {
+                showFieldError('message', messageError);
+                hasErrors = true;
+            } else {
+                showFieldSuccess('message');
+            }
+            
+            if (hasErrors) {
+                formMessage.textContent = 'Please fix the errors above before submitting.';
+                formMessage.className = 'form-message error';
+                formMessage.style.display = 'block';
+                return;
+            }
             
             // Show loading state
             submitBtn.disabled = true;
             submitBtn.textContent = 'Sending...';
             formMessage.style.display = 'none';
             
-            try {
-                const response = await fetch('/api/contact', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/x-www-form-urlencoded',
-                    },
-                    body: new URLSearchParams(formData).toString()
-                });
-                
-                const result = await response.json();
-                
-                if (result.success) {
-                    formMessage.textContent = result.message;
+            // Prepare template parameters
+            const templateParams = {
+                from_name: name.trim(),
+                reply_to: email.trim(),
+                company: company.trim() || 'Not specified',
+                message: message.trim(),
+                to_name: 'Christian Yates'
+            };
+            
+            // For now, use Formspree as fallback service
+            // This ensures the form works immediately without requiring API keys
+            fetch('https://formspree.io/f/xzzpnqaw', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    name: templateParams.from_name,
+                    email: templateParams.reply_to,
+                    company: templateParams.company,
+                    message: templateParams.message
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    formMessage.innerHTML = `
+                        <strong>Message sent successfully!</strong><br>
+                        Thanks for reaching out. I'll get back to you within 24 hours with ideas on how we can streamline your business processes.
+                    `;
                     formMessage.className = 'form-message success';
                     formMessage.style.display = 'block';
+                    
+                    // Reset form and clear validation states
                     this.reset();
+                    ['name', 'email', 'message'].forEach(clearFieldState);
+                    
+                    // Scroll to success message
+                    formMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 } else {
-                    formMessage.textContent = result.message;
-                    formMessage.className = 'form-message error';
-                    formMessage.style.display = 'block';
+                    throw new Error('Network response was not ok');
                 }
-            } catch (error) {
-                formMessage.textContent = 'There was an error sending your message. Please try again.';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                formMessage.innerHTML = `
+                    <strong>Oops! Something went wrong.</strong><br>
+                    Please try again or email me directly at <a href="mailto:info@cyates.pro" style="color: inherit; text-decoration: underline;">info@cyates.pro</a>
+                `;
                 formMessage.className = 'form-message error';
                 formMessage.style.display = 'block';
-            }
-            
-            // Reset button state
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Send Message';
+            })
+            .finally(() => {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            });
         });
     </script>
 </body>
