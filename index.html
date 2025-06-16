@@ -66,8 +66,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <!-- EmailJS for contact form -->
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
     <!-- Blog functionality -->
     <script src="blog.js" defer></script>
 </head>
@@ -302,13 +301,13 @@
                         <h3 id="contact-form-title" class="sr-only">Contact Form</h3>
                         <div class="form-group">
                             <label for="name" class="form-label">Name *</label>
-                            <input type="text" id="name" name="from_name" class="form-input" required aria-required="true" aria-describedby="name-help name-error" minlength="2" maxlength="50">
+                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-help name-error" minlength="2" maxlength="50">
                             <div id="name-help" class="sr-only">Enter your full name</div>
                             <div id="name-error" class="form-error" role="alert" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
                             <label for="email" class="form-label">Email *</label>
-                            <input type="email" id="email" name="reply_to" class="form-input" required aria-required="true" aria-describedby="email-help email-error">
+                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-help email-error">
                             <div id="email-help" class="sr-only">Enter your email address for contact</div>
                             <div id="email-error" class="form-error" role="alert" aria-live="polite"></div>
                         </div>
@@ -481,8 +480,7 @@
             updateHeaderOnScroll();
         });
 
-        // Initialize EmailJS
-        emailjs.init("YOUR_PUBLIC_KEY"); // Will be replaced with actual key
+
         
         // Form validation functions
         function validateName(name) {
@@ -615,27 +613,17 @@
             submitBtn.textContent = 'Sending...';
             formMessage.style.display = 'none';
             
-            // Prepare template parameters
-            const templateParams = {
-                from_name: name.trim(),
-                reply_to: email.trim(),
-                company: company.trim() || 'Not specified',
-                message: message.trim(),
-                to_name: 'Christian Yates'
-            };
-            
-            // For now, use Formspree as fallback service
-            // This ensures the form works immediately without requiring API keys
+            // Submit to Formspree
             fetch('https://formspree.io/f/xzzpnqaw', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
                 body: JSON.stringify({
-                    name: templateParams.from_name,
-                    email: templateParams.reply_to,
-                    company: templateParams.company,
-                    message: templateParams.message
+                    name: name.trim(),
+                    email: email.trim(),
+                    company: company.trim() || 'Not specified',
+                    message: message.trim()
                 })
             })
             .then(response => {
