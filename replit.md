@@ -87,7 +87,20 @@ The architecture is designed as a full-stack web application with plans for Post
 
 ## Changelog
 - June 16, 2025. Initial setup
+- June 16, 2025. Updated services section to "Tech Handyman" brand with practical, outcome-driven language
+- June 16, 2025. Rewrote About Me section to reflect blue-collar/sales background and AI obsession
+
+## Recent Changes
+- ✓ Services section transformed from "Featured Projects" to "Tech Handyman Services"
+- ✓ Four new services: Digital Tune-Up, Form Fix, AI Assistant Build, Website Visibility Boost
+- ✓ Navigation updated from "PROJECTS" to "SERVICES"
+- ✓ Database updated with new service descriptions
+- ✓ About Me section rewritten to emphasize blue-collar background and practical AI solutions
+- ✓ Brand positioning shifted to "Tech Handyman" - practical fixes over tech jargon
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Brand positioning: "Tech Handyman" - practical, outcome-driven solutions for small business owners.
+Target audience: Blue-collar workers, small business owners who need automation but aren't technical.
+Tone: Approachable, grounded in real-world usefulness, avoid tech jargon.
