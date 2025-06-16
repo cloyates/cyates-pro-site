@@ -1,4 +1,6 @@
 // Blog functionality for I KNOW NØTHING! LABS
+// PostgreSQL integration placeholder: Future implementation will replace file-based system with database queries
+
 class BlogManager {
     constructor() {
         this.blogPosts = [
@@ -27,6 +29,8 @@ class BlogManager {
     }
 
     async loadBlogContent(slug) {
+        // PostgreSQL placeholder: Replace with database query
+        // Example: SELECT content FROM blog_posts WHERE slug = $1
         try {
             const response = await fetch(`/blog/${slug}.md`);
             if (response.ok) {
@@ -82,6 +86,25 @@ class BlogManager {
         }
     }
 
+    // PostgreSQL integration methods (for future implementation)
+    async saveBlogPost(postData) {
+        // Placeholder for database insertion
+        // INSERT INTO blog_posts (title, slug, content, excerpt, published_date) VALUES ($1, $2, $3, $4, $5)
+        console.log('PostgreSQL placeholder: saveBlogPost', postData);
+    }
+
+    async getBlogPostsFromDB() {
+        // Placeholder for database query
+        // SELECT * FROM blog_posts WHERE published = true ORDER BY published_date DESC
+        console.log('PostgreSQL placeholder: getBlogPostsFromDB');
+        return this.blogPosts; // Fallback to static data
+    }
+
+    async updateBlogPost(slug, postData) {
+        // Placeholder for database update
+        // UPDATE blog_posts SET title = $1, content = $2, excerpt = $3 WHERE slug = $4
+        console.log('PostgreSQL placeholder: updateBlogPost', slug, postData);
+    }
 }
 
 // Initialize blog functionality when DOM is loaded
