@@ -1,0 +1,13 @@
+<svg width="400" height="150" viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="labsGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00FF66"/>
+      <stop offset="100%" stop-color="#00E659"/>
+    </linearGradient>
+  </defs>
+  <rect width="400" height="150" fill="#1e1e1e" rx="12"/>
+  <text x="200" y="50" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="bold" text-anchor="middle" fill="url(#labsGrad)">I KNOW NØTHING!</text>
+  <text x="200" y="80" font-family="Inter, Arial, sans-serif" font-size="18" text-anchor="middle" fill="#e2e8f0">LABS</text>
+  <text x="200" y="110" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cbd5e0">Documenting the tools, workflows, and lessons learned</text>
+  <text x="200" y="130" font-family="Inter, Arial, sans-serif" font-size="12" text-anchor="middle" fill="#cbd5e0">so others can skip the trial-and-error</text>
+</svg>
