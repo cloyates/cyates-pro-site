@@ -127,9 +127,29 @@ p {
 
 .hero-subtitle {
     font-size: 1.25rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 2rem;
     opacity: 0.9;
     font-weight: 400;
+}
+
+.hero-features {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    flex-wrap: wrap;
+}
+
+.hero-feature {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #e2e8f0;
+    font-weight: 500;
+}
+
+.feature-icon {
+    font-size: 1.25rem;
 }
 
 .hero-buttons {
