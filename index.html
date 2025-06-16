@@ -79,6 +79,11 @@
                     <img src="CY_IT_WORKS_!LB.png" alt="CY IT Works logo - Your Tech Handyman" class="nav-logo">
                 </a>
             </div>
+            <button class="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+            </button>
             <div class="nav-links">
                 <a href="#projects" class="nav-link">SERVICES</a>
                 <a href="#about" class="nav-link">ABOUT</a>
@@ -364,6 +369,8 @@
             const navLinks = document.querySelectorAll('.nav-link');
             const sections = document.querySelectorAll('section[id]');
             const header = document.querySelector('.header');
+            const navToggle = document.querySelector('.nav-toggle');
+            const navLinksContainer = document.querySelector('.nav-links');
             
             // Active section highlighting on scroll
             function updateActiveNavLink() {
@@ -401,6 +408,23 @@
                 });
             }
             
+            // Mobile navigation toggle
+            navToggle.addEventListener('click', function() {
+                const isOpen = navLinksContainer.classList.contains('active');
+                
+                if (isOpen) {
+                    navLinksContainer.classList.remove('active');
+                    navToggle.classList.remove('active');
+                    navToggle.setAttribute('aria-expanded', 'false');
+                    document.body.style.overflow = '';
+                } else {
+                    navLinksContainer.classList.add('active');
+                    navToggle.classList.add('active');
+                    navToggle.setAttribute('aria-expanded', 'true');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+            
             // Smooth scroll enhancement for navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
@@ -420,6 +444,14 @@
                         // Update active state immediately
                         navLinks.forEach(navLink => navLink.classList.remove('active'));
                         this.classList.add('active');
+                        
+                        // Close mobile menu if open
+                        if (navLinksContainer.classList.contains('active')) {
+                            navLinksContainer.classList.remove('active');
+                            navToggle.classList.remove('active');
+                            navToggle.setAttribute('aria-expanded', 'false');
+                            document.body.style.overflow = '';
+                        }
                     }
                 });
             });
