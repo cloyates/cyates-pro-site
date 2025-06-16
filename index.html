@@ -3,10 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="CY IT Works! - Automation & AI Tools for Service Businesses. Custom solutions that save time and boost revenue.">
-    <meta name="keywords" content="automation, AI tools, service businesses, Christian Yates, custom software">
-    <title>CY IT Works! - Automation & AI Tools for Service Businesses</title>
+    <meta name="description" content="Your Tech Handyman - Christian Yates builds simple, affordable AI tools for small businesses. Digital tune-ups, form automation, lead capture systems that work 24/7.">
+    <meta name="keywords" content="tech handyman, AI automation, small business tools, digital tune-up, form automation, lead capture, Christian Yates, business automation">
+    <meta name="author" content="Christian Yates">
+    <meta name="robots" content="index, follow">
+    <meta property="og:title" content="CY IT Works! - Your Tech Handyman for AI Business Solutions">
+    <meta property="og:description" content="Simple, affordable AI tools that handle your paperwork, follow-ups, and routine tasks. Built by someone who understands small business struggles.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://cyitworks.com">
+    <meta property="og:image" content="/CY_IT_WORKS_!.svg">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="CY IT Works! - Your Tech Handyman">
+    <meta name="twitter:description" content="AI tools for small businesses that work behind the scenes - no tech degree required.">
+    <title>CY IT Works! - Your Tech Handyman for AI Business Solutions</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+        
+        /* Focus styles for accessibility */
+        a:focus, button:focus, input:focus, textarea:focus, select:focus {
+            outline: 2px solid #00ff88;
+            outline-offset: 2px;
+        }
+        
+        /* Skip to main content link */
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 6px;
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-decoration: none;
+            z-index: 1000;
+        }
+        
+        .skip-link:focus {
+            top: 6px;
+        }
+    </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
@@ -17,12 +62,13 @@
     <script src="blog.js" defer></script>
 </head>
 <body>
+    <a href="#hero-main" class="skip-link">Skip to main content</a>
     <!-- Header Navigation -->
-    <header class="header">
-        <nav class="nav">
+    <header class="header" role="banner">
+        <nav class="nav" role="navigation" aria-label="Main navigation">
             <div class="nav-brand">
-                <a href="#" class="nav-home">
-                    <img src="CY_IT_WORKS_!LB.png" alt="CY IT Works Logo" class="nav-logo">
+                <a href="#" class="nav-home" aria-label="CY IT Works homepage">
+                    <img src="CY_IT_WORKS_!LB.png" alt="CY IT Works logo - Your Tech Handyman" class="nav-logo">
                 </a>
             </div>
             <div class="nav-links">
@@ -35,33 +81,34 @@
     </header>
 
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" role="main">
         <div class="container">
             <div class="hero-logo-container">
-                <img src="CY_IT_WORKS_!.svg" alt="CY IT Works Logo" class="hero-logo">
+                <img src="CY_IT_WORKS_!.svg" alt="CY IT Works main logo - Tech Handyman building AI tools for small businesses" class="hero-logo">
             </div>
             <div class="hero-content">
                 <h1 class="hero-title">Your Tech Handyman—Building Tools That Do the Work for You.</h1>
                 <p class="hero-subtitle">I build AI tools and digital assistants that run in the background, handling your paperwork, follow-ups, and routine tasks so you can focus on what you do best.</p>
-                <div class="hero-features">
-                    <div class="hero-feature">
-                        <span class="feature-icon">⏰</span>
+                <div class="hero-features" role="list" aria-label="Key benefits">
+                    <div class="hero-feature" role="listitem">
+                        <span class="feature-icon" aria-hidden="true">⏰</span>
                         <span>Save hours every week</span>
                     </div>
-                    <div class="hero-feature">
-                        <span class="feature-icon">🔧</span>
+                    <div class="hero-feature" role="listitem">
+                        <span class="feature-icon" aria-hidden="true">🔧</span>
                         <span>Remove manual work</span>
                     </div>
-                    <div class="hero-feature">
-                        <span class="feature-icon">📋</span>
+                    <div class="hero-feature" role="listitem">
+                        <span class="feature-icon" aria-hidden="true">📋</span>
                         <span>Stay organized automatically</span>
                     </div>
                 </div>
                 <div class="hero-buttons">
-                    <a href="#contact" class="btn btn-primary">Book a Free Digital Tune-Up</a>
+                    <a href="#contact" class="btn btn-primary" aria-describedby="tune-up-desc">Book a Free Digital Tune-Up</a>
                     <a href="#projects" class="btn btn-secondary">See What I Build</a>
                     <a href="#about" class="btn btn-outline">My Story</a>
                 </div>
+                <div id="tune-up-desc" class="sr-only">Schedule a free consultation to assess your business automation needs</div>
             </div>
         </div>
     </section>
@@ -71,47 +118,47 @@
         <div class="container">
             <h2 class="section-title">TECH HANDYMAN SERVICES</h2>
             <p class="section-subtitle">Practical fixes that save time and boost your business</p>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-wrench"></i>
+            <div class="projects-grid" role="list" aria-label="Available services">
+                <article class="project-card" role="listitem">
+                    <div class="project-icon" aria-hidden="true">
+                        <i class="fas fa-wrench" title="Digital tune-up service icon"></i>
                     </div>
                     <h3 class="project-title">Digital Tune-Up</h3>
                     <p class="project-description">AI consulting plus tool setup that gets your business running smoother. We'll audit your current workflow, identify time-wasters, and build custom solutions that work behind the scenes.</p>
-                    <a href="#contact" class="btn btn-small">Get Your Tune-Up</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-file-alt"></i>
+                    <a href="#contact" class="btn btn-small" aria-label="Contact us about Digital Tune-Up service">Get Your Tune-Up</a>
+                </article>
+                <article class="project-card" role="listitem">
+                    <div class="project-icon" aria-hidden="true">
+                        <i class="fas fa-file-alt" title="Form automation service icon"></i>
                     </div>
                     <h3 class="project-title">Form Fix</h3>
                     <p class="project-description">Turn clunky PDFs and paper forms into smart, automation-ready tools. Your clients fill out forms once, and everything else happens automatically—scheduling, follow-ups, invoicing.</p>
-                    <a href="#contact" class="btn btn-small">Fix My Forms</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-robot"></i>
+                    <a href="#contact" class="btn btn-small" aria-label="Contact us about Form Fix service">Fix My Forms</a>
+                </article>
+                <article class="project-card" role="listitem">
+                    <div class="project-icon" aria-hidden="true">
+                        <i class="fas fa-robot" title="AI assistant service icon"></i>
                     </div>
                     <h3 class="project-title">AI Assistant Build</h3>
                     <p class="project-description">Custom bots and scripts that handle your follow-ups, client communication, and routine tasks. Like having a digital employee who never takes breaks and never forgets.</p>
-                    <a href="#contact" class="btn btn-small">Build My Assistant</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-search"></i>
+                    <a href="#contact" class="btn btn-small" aria-label="Contact us about AI Assistant Build service">Build My Assistant</a>
+                </article>
+                <article class="project-card" role="listitem">
+                    <div class="project-icon" aria-hidden="true">
+                        <i class="fas fa-search" title="Website visibility service icon"></i>
                     </div>
                     <h3 class="project-title">Website Visibility Boost</h3>
                     <p class="project-description">SEO improvements plus AI-generated content systems that keep your website fresh and found. More visibility means more customers finding you when they need your services.</p>
-                    <a href="#contact" class="btn btn-small">Boost My Visibility</a>
-                </div>
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-magnet"></i>
+                    <a href="#contact" class="btn btn-small" aria-label="Contact us about Website Visibility Boost service">Boost My Visibility</a>
+                </article>
+                <article class="project-card" role="listitem">
+                    <div class="project-icon" aria-hidden="true">
+                        <i class="fas fa-magnet" title="Lead capture service icon"></i>
                     </div>
                     <h3 class="project-title">AI-Powered Lead Capture</h3>
                     <p class="project-description">Your 24/7 lead generator that works even when you're busy. Smart forms and AI automations capture leads, organize them, and send follow-ups directly to your inbox or CRM. No missed opportunities, no manual chasing—just steady client flow.</p>
-                    <a href="#contact" class="btn btn-small">Start Capturing Leads</a>
-                </div>
+                    <a href="#contact" class="btn btn-small" aria-label="Contact us about AI-Powered Lead Capture service">Start Capturing Leads</a>
+                </article>
             </div>
         </div>
     </section>
@@ -120,7 +167,7 @@
     <section id="about" class="about">
         <div class="container">
             <div class="about-content">
-                <div class="about-text">
+                <article class="about-text">
                     <h2 class="section-title">About Christian Yates</h2>
                     <p class="about-description">
                         I come from a background in sales and hands-on work, so I know the daily grind of small business: endless paperwork, missed follow-ups, and never enough time. I've always loved computers and tech, so when I discovered AI's potential to solve these real problems, I became obsessed—not with flashy tech headlines, but with practical solutions that actually matter.
@@ -131,7 +178,7 @@
                     <p class="about-description">
                         My approach is straightforward: understand the problem, build something that works, make it affordable. No tech jargon, no enterprise pricing—just practical tools that pay for themselves by giving you your time back.
                     </p>
-                </div>
+                </article>
             </div>
         </div>
     </section>
@@ -140,9 +187,9 @@
     <section id="labs" class="labs">
         <div class="container">
             <div class="labs-logo">
-                <img src="i-know-nothing-circular.svg" alt="I KNOW NØTHING! LABS" class="labs-logo-img">
+                <img src="i-know-nothing-circular.svg" alt="I KNOW NØTHING! LABS logo - Knowledge sharing platform" class="labs-logo-img">
             </div>
-            <h2 class="section-title labs-title">🧠 I KNOW NØTHING! LABS</h2>
+            <h2 class="section-title labs-title"><span aria-hidden="true">🧠</span> I KNOW NØTHING! LABS</h2>
             <div class="labs-content">
                 <div class="labs-intro">
                     <p>
@@ -154,49 +201,48 @@
                 </div>
                 
                 <!-- Open Source Tools Grid -->
-                <div class="tools-section">
+                <section class="tools-section">
                     <h3 class="subsection-title">Open Source CLI Tools</h3>
-                    <div class="tools-grid">
-                        <div class="tool-card">
+                    <div class="tools-grid" role="list" aria-label="Open source tools">
+                        <article class="tool-card" role="listitem">
                             <div class="tool-header">
                                 <h4>api_vault</h4>
                                 <div class="tool-links">
-                                    <a href="#" class="tool-link">Demo</a>
-                                    <a href="https://github.com/cyates/api_vault" class="github-btn" target="_blank">GitHub</a>
+                                    <a href="#" class="tool-link" aria-label="View api_vault demo">Demo</a>
+                                    <a href="https://github.com/cyates/api_vault" class="github-btn" target="_blank" rel="noopener noreferrer" aria-label="View api_vault source code on GitHub">GitHub</a>
                                 </div>
                             </div>
                             <p>Encrypted CLI vault for API keys</p>
-                        </div>
-                        <div class="tool-card">
+                        </article>
+                        <article class="tool-card" role="listitem">
                             <div class="tool-header">
                                 <h4>cli_starter</h4>
                                 <div class="tool-links">
-                                    <a href="#" class="tool-link">Demo</a>
-                                    <a href="https://github.com/cyates/cli_starter" class="github-btn" target="_blank">GitHub</a>
+                                    <a href="#" class="tool-link" aria-label="View cli_starter demo">Demo</a>
+                                    <a href="https://github.com/cyates/cli_starter" class="github-btn" target="_blank" rel="noopener noreferrer" aria-label="View cli_starter source code on GitHub">GitHub</a>
                                 </div>
                             </div>
                             <p>Minimal starter kit for AI-assisted CLI development</p>
-                        </div>
-                        <div class="tool-card coming-soon">
+                        </article>
+                        <article class="tool-card coming-soon" role="listitem">
                             <div class="tool-header">
                                 <h4>workflow_cli</h4>
                                 <div class="tool-links">
-                                    <span class="coming-soon-badge">Coming Soon</span>
+                                    <span class="coming-soon-badge" aria-label="Tool in development">Coming Soon</span>
                                 </div>
                             </div>
                             <p>Automated workflow orchestration for service businesses</p>
-                        </div>
+                        </article>
                     </div>
-                </div>
+                </section>
                 
                 <!-- Blog Posts Section -->
-                <div class="blog-section">
+                <section class="blog-section">
                     <h3 class="subsection-title">Latest Blog Posts</h3>
-                    <div class="blog-grid" id="blog-posts">
+                    <div class="blog-grid" id="blog-posts" role="list" aria-label="Recent blog posts" aria-live="polite">
                         <!-- Blog posts will be populated by JavaScript -->
-                        <!-- PostgreSQL integration placeholder: Replace with database queries in future -->
                     </div>
-                </div>
+                </section>
             </div>
         </div>
     </section>
@@ -207,28 +253,28 @@
             <h2 class="section-title">Let's Fix What's Slowing You Down</h2>
             <p class="section-subtitle">Ready to transform your service business with automation and AI?</p>
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
+                <div class="contact-info" role="list" aria-label="Contact information">
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon" aria-hidden="true">
+                            <i class="fas fa-envelope" title="Email contact icon"></i>
                         </div>
                         <div class="contact-details">
                             <h3>Email</h3>
-                            <p>info@cyates.pro</p>
+                            <p><a href="mailto:info@cyates.pro" aria-label="Send email to info@cyates.pro">info@cyates.pro</a></p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon" aria-hidden="true">
+                            <i class="fas fa-phone" title="Phone contact icon"></i>
                         </div>
                         <div class="contact-details">
                             <h3>Phone</h3>
                             <p>Available upon request</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
+                    <div class="contact-item" role="listitem">
+                        <div class="contact-icon" aria-hidden="true">
+                            <i class="fas fa-clock" title="Response time icon"></i>
                         </div>
                         <div class="contact-details">
                             <h3>Response Time</h3>
@@ -237,25 +283,31 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form class="form" id="contactForm">
+                    <form class="form" id="contactForm" role="form" aria-labelledby="contact-form-title">
+                        <h3 id="contact-form-title" class="sr-only">Contact Form</h3>
                         <div class="form-group">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" id="name" name="name" class="form-input" required>
+                            <label for="name" class="form-label">Name *</label>
+                            <input type="text" id="name" name="name" class="form-input" required aria-required="true" aria-describedby="name-help">
+                            <div id="name-help" class="sr-only">Enter your full name</div>
                         </div>
                         <div class="form-group">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" id="email" name="email" class="form-input" required>
+                            <label for="email" class="form-label">Email *</label>
+                            <input type="email" id="email" name="email" class="form-input" required aria-required="true" aria-describedby="email-help">
+                            <div id="email-help" class="sr-only">Enter your email address for contact</div>
                         </div>
                         <div class="form-group">
                             <label for="company" class="form-label">Company</label>
-                            <input type="text" id="company" name="company" class="form-input">
+                            <input type="text" id="company" name="company" class="form-input" aria-describedby="company-help">
+                            <div id="company-help" class="sr-only">Optional: Enter your company name</div>
                         </div>
                         <div class="form-group">
-                            <label for="message" class="form-label">Project Details</label>
-                            <textarea id="message" name="message" class="form-textarea" rows="5" required></textarea>
+                            <label for="message" class="form-label">Project Details *</label>
+                            <textarea id="message" name="message" class="form-textarea" rows="5" required aria-required="true" aria-describedby="message-help"></textarea>
+                            <div id="message-help" class="sr-only">Describe your project needs and automation challenges</div>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn">Send Message</button>
-                        <div id="formMessage" class="form-message" style="display: none;"></div>
+                        <button type="submit" class="btn btn-primary btn-full" id="submitBtn" aria-describedby="submit-help">Send Message</button>
+                        <div id="submit-help" class="sr-only">Submit your contact form to get in touch about Tech Handyman services</div>
+                        <div id="formMessage" class="form-message" style="display: none;" role="alert" aria-live="polite"></div>
                     </form>
                 </div>
             </div>
