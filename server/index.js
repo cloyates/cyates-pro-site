@@ -1,8 +1,8 @@
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const url = require('url');
-const querystring = require('querystring');
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import url from 'url';
+import querystring from 'querystring';
 
 // Simple routing for static files and API
 const server = http.createServer(async (req, res) => {
